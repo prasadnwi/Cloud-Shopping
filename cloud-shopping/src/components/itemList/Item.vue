@@ -56,7 +56,7 @@
     .Product {
         border-style: solid;
         border-color: $honeyDew;
-        width: 20vw;
+        width: 18vw;
         height: 38vh;
         margin-top: 1vw;
         margin-right: 1vw;

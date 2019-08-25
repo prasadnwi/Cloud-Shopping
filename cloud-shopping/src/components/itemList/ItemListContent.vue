@@ -64,7 +64,7 @@
 <style lang="scss">
     .Product-list-wrapper {
         .products {
-          width: 70vw;
+            width: 100%;
           background-color: #42b983;
             .list-content {
                 display: inline-block;
