@@ -1,21 +1,22 @@
 <template>
-    <div class='Product container-fluid' id='Product'>
+    <div class='Product container' id='Product'>
         <div>
             <!--            image-->
             <div class='item-image row' id='cart-image'>
-                image here
+                <img src="../../assets/products/apple.png">
             </div>
             <!--            details-->
-            <div class='item-details row' id='product-name'>
-                <p class='name'>name</p>
-            </div>
+            <div class='item-details'>
+                <div class='row' id='product-name'>
+                    <p class='name'>{{name}}</p>
+                </div>
 
-            <div class='item-details row' id='product-price'>
-                <p class='price'>price</p>
+                <div class='row' id='product-price'>
+                    <p class='price'> Rs {{price}}</p>
+                </div>
             </div>
-
             <div class='add-cart' id='add-cart'>
-                <button class="add-btn row" v-if="0 == 0">ADD TO CART</button>
+                <button class="add-btn row" v-if="1 == 0">ADD TO CART</button>
                 <div class="option-btn row" v-else>
                     <div class="col-lg-6 col-md-6">
                         <button class="inc">+</button>
@@ -32,7 +33,20 @@
 
 <script>
     export default {
-        props: ['item'],
+        props: {
+            item: {
+                type: Object,
+                default: function () {
+                    return {}
+                }
+            }
+        },
+        data: function () {
+            return {
+                name: this.item.name,
+                price: this.item.price,
+            }
+        }
     }
 </script>
 
@@ -40,9 +54,10 @@
     @import '../../constants/colors';
 
     .Product {
-        width: 18vw;
-        height: 32vh;
-        background-color: $snow;
+        border-style: solid;
+        border-color: $honeyDew;
+        width: 20vw;
+        height: 38vh;
         margin-top: 1vw;
         margin-right: 1vw;
         float: left;
@@ -50,22 +65,40 @@
 
         .item-image {
             cursor: pointer;
-            background-color: #5E740B;
+            display: block;
+            margin-top: 1.2vh;
+
+            img {
+                max-width: 15vw;
+                max-height: 15vh;
+                display: block;
+                margin: auto;
+            }
         }
 
         .item-details {
+            display: block;
             max-height: 5vh;
-            margin-top: 2vh;
+            margin-top: 3vh;
+            text-align: left;
+            margin-left: 1vw;
+            margin-bottom: 3vh;
 
-            .item-name {
+            .name {
                 text-overflow: ellipsis;
+                font-weight: bold;
+                line-height: 1.5vh;
             }
 
             .price {
+                font-size: 90%;
             }
         }
 
         .add-cart {
+            display: block;
+            font-size: 79%;
+
             .add-btn, .inc, .dec {
                 display: block;
                 border: none;
@@ -74,8 +107,8 @@
             }
 
             .add-btn {
-                width: 97%;
-                margin-left: 0.25%;
+                width: 90%;
+                margin-left: 5%;
                 background: #41B883;
                 color: #fff;
             }
@@ -98,7 +131,6 @@
                 }
             }
         }
-
 
 
     }

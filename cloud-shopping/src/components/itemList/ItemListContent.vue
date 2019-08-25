@@ -4,7 +4,7 @@
         <div class='products' id='products'>
           <div class='list-content' id='product-list'>
             <!--items-->
-            <Item :item="item" v-for=" item in items"/>
+              <Item v-bind:item="item" v-for=" item in items"/>
           </div>
         </div>
     </div>
