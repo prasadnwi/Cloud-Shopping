@@ -1,10 +1,10 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-10">
+      <div class="col-lg-8">
         <ItemListContent/>
       </div>
-      <div class="col-lg-2">
+      <div class="col-lg-4">
         <Cart/>
       </div>
     </div>
