@@ -7,11 +7,11 @@
         </div>
 
         <!--        items-->
-        <div class="items" id="item-list">
-            <Item/>
-            <Item/>
-            <Item/>
-            <Item/>
+        <div class="items" id="item-list" v-if="hasItemsInCart">
+            <Item v-bind:item="item" v-for="item in items"/>
+        </div>
+        <div class="no-items" id="no-items" v-else>
+            No Items
         </div>
 
         <!--        cart summery-->
@@ -50,6 +50,17 @@
         name: "CartContent",
         components: {
             Item
+        },
+        props: {
+            items: {
+                type: Array,
+                default: []
+            }
+        },
+        data: function () {
+            return {
+                hasItemsInCart: this.items.length > 0 ? true : false
+            }
         }
     }
 </script>
@@ -60,10 +71,8 @@
     .cart-content {
         border-style: solid;
         min-width: 20vw;
-
         .header {
             background-color: $midnightBlue;
-
             .title {
                 color: $white;
                 font-weight: bold;
@@ -71,9 +80,10 @@
         }
 
         .items {
-
         }
 
+        .no-items {
+        }
         .summary {
             text-align: left;
 

@@ -15,6 +15,7 @@ const actions = {
             imageName: 'apple',
             description: 'this is apple',
             rating: 5,
+            quantity: 4,
             vendor: 'appleMaker'
         }, {
             id: 1,
@@ -23,6 +24,7 @@ const actions = {
             imageName: 'apple',
             description: 'this is apple',
             rating: 5,
+            quantity: 4,
             vendor: 'appleMaker'
         },
             {
@@ -32,6 +34,7 @@ const actions = {
                 imageName: 'apple',
                 description: 'this is apple',
                 rating: 5,
+                quantity: 4,
                 vendor: 'appleMaker'
             },
             {
@@ -41,6 +44,7 @@ const actions = {
                 imageName: 'apple',
                 description: 'this is apple',
                 rating: 5,
+                quantity: 4,
                 vendor: 'appleMaker'
             }
         ]

@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class='add-cart' id='add-cart'>
-                <button class="add-btn row" v-if="1 == 0">ADD TO CART</button>
+                <button @click="addItemToCart(item)" class="add-btn row" v-if="0 == 0">ADD TO CART</button>
                 <div class="option-btn row" v-else>
                     <div class="col-lg-6 col-md-6">
                         <button class="inc">+</button>
@@ -32,14 +32,14 @@
 </template>
 
 <script>
+
     export default {
         props: {
             item: {
                 type: Object,
-                default: function () {
-                    return {}
-                }
-            }
+                default: {}
+            },
+            addItemToCart: {type: Function},
         },
         data: function () {
             return {

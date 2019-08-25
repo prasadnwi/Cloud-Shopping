@@ -2,13 +2,15 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-8">
-        <ItemListContent v-bind:items="items"/>
+        <ItemListContent
+                v-bind:addItemToCart="addItemToCart"
+                v-bind:items="items"
+        />
       </div>
       <div class="col-lg-4">
         <Cart/>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -27,9 +29,11 @@
     computed: mapState({
       items: state => state.items.all
     }),
-    methods: mapActions('', []),
+    methods: mapActions('cart', [
+      'addItemToCart'
+    ]),
     created() {
       this.$store.dispatch('getAllItems')
-    }
+    },
   }
 </script>

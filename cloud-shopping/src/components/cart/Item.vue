@@ -26,7 +26,13 @@
 
 <script>
     export default {
-        name: "Item"
+        name: "Item",
+        props: {
+            item: {
+                type: Object,
+                default: {}
+            }
+        }
     }
 </script>
 
