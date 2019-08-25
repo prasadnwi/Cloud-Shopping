@@ -15,48 +15,14 @@
 
   export default {
         name: 'ItemListContent',
+      props: {
+          items: {
+              type: Array,
+              default: []
+          }
+      },
         components: {
             Item
-        },
-        data: function () {
-            return {
-                items: [{
-                    id: 1,
-                    name: 'Apple',
-                    price: 100,
-                    imageName: 'apple',
-                    description: 'this is apple',
-                    rating: 5,
-                    vendor: 'appleMaker'
-                }, {
-                    id: 1,
-                    name: 'Apple',
-                    price: 100,
-                    imageName: 'apple',
-                    description: 'this is apple',
-                    rating: 5,
-                    vendor: 'appleMaker'
-                },
-                  {
-                    id: 1,
-                    name: 'Apple',
-                    price: 100,
-                    imageName: 'apple',
-                    description: 'this is apple',
-                    rating: 5,
-                    vendor: 'appleMaker'
-                  },
-                  {
-                    id: 1,
-                    name: 'Apple',
-                    price: 100,
-                    imageName: 'apple',
-                    description: 'this is apple',
-                    rating: 5,
-                    vendor: 'appleMaker'
-                  }
-                ]
-            }
         }
     }
 </script>
