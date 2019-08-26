@@ -54,7 +54,9 @@
         props: {
             items: {
                 type: Array,
-                default: []
+                default: function () {
+                    return []
+                }
             }
         },
         computed: {
