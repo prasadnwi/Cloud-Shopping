@@ -57,11 +57,12 @@
                 default: []
             }
         },
-        data: function () {
-            return {
-                hasItemsInCart: this.items.length > 0 ? true : false
+        computed: {
+            hasItemsInCart: function () {
+                return (this.items.length > 0 ? true : false)
             }
         }
+
     }
 </script>
 

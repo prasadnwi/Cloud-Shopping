@@ -9,7 +9,7 @@
             <div class="details lg-col-6 md-col-6" id="item-details">
                 <div class="row" id="details-content">
                     <div class="name col-6" id="item-name">
-                        <p>apple</p>
+                        <p>{{item.name}}</p>
                     </div>
                     <div class="quantity col-6" id="item-quantity">
                         <p>* 2</p>
