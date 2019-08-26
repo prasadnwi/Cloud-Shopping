@@ -21,7 +21,9 @@
         props: {
             items: {
                 type: Array,
-                default: []
+                default: function () {
+                    return ([])
+                }
             },
             addItemToCart: {type: Function},
         },
