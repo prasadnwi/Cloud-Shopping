@@ -2,11 +2,7 @@ const state = {
     all: []
 };
 
-const getters = {
-    isAvailbleOnCart: (state) => (id) => {
-        return state.all.find(item => item.id === id);
-    }
-};
+const getters = {};
 
 const actions = {
     addItemToCart({state, commit}, item) {
@@ -40,7 +36,7 @@ const mutations = {
 
 };
 
-const namespaced = true
+const namespaced = true;
 
 export default {
     state,

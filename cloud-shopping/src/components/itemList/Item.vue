@@ -15,7 +15,7 @@
                     <p class='price'> Rs {{price}}</p>
                 </div>
             </div>
-            <div class='add-cart' id='add-cart' v-if="true">
+            <div class='add-cart' id='add-cart' v-if="!isAvailbleOnCart">
                 <button @click="addItemToCart(item)" class="add-btn row" v-if="count !== 0">ADD TO CART</button>
                 <div class="option-btn row" v-else>
                     <button class="add-btn disable-btn row" disabled>OUT OF STOCK</button>
@@ -56,7 +56,7 @@
         },
         computed: {
             isAvailbleOnCart(){
-                return this.$store.getters.test(this.item.id);
+                return this.$store.getters.isAvailbleOnCart(this.item.id);
             }
         }
     }

@@ -7,8 +7,8 @@ const getters = {
     itemDetails: (state) => (id) => {
         return state.all.find(item => item.id === id);
     },
-    test : (state) => () => {
-        console.log('sfsdf');
+    isAvailbleOnCart:(state, getters, rootState) => (id) => {
+        return rootState.cart.all.find(item => item.id === id);
     }
 }
 
@@ -70,5 +70,5 @@ export default {
     state,
     getters,
     actions,
-    mutations
+    mutations,
 }
