@@ -9,7 +9,8 @@ const cart = {
             let addedItem = {
                 id: item.id,
                 name: item.name,
-                count: 1
+                count: 1,
+                unitPrice: item.price
             };
             // check in the cart
             const indexofItem = state.all.findIndex(item => item.id === addedItem.id);

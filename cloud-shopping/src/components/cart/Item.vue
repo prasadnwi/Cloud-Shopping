@@ -18,22 +18,31 @@
             </div>
             <!--            price-->
             <div class="price lg-col-3 md-col-3" id="price">
-                <p>Rs 100</p>
+                <p>{{price}}</p>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import * as cartCalculation from '../../utill/cart';
     export default {
         name: "Item",
         props: {
             item: {
                 type: Object,
                 default: function () {
-                    return {}
+                    return ({})
                 }
             }
+        },
+        data: function () {
+            return{
+                price: cartCalculation.getAItemPrice(this.item)
+            }
+        },
+        beforeUpdate: function () {
+            this.price = cartCalculation.getAItemPrice(this.item)
         }
     }
 </script>
