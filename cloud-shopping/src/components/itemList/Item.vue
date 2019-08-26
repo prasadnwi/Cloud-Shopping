@@ -15,15 +15,10 @@
                     <p class='price'> Rs {{price}}</p>
                 </div>
             </div>
-            <div class='add-cart' id='add-cart'>
-                <button @click="addItemToCart(item)" class="add-btn row" v-if="0 == 0">ADD TO CART</button>
+            <div class='add-cart' id='add-cart' v-if="true">
+                <button @click="addItemToCart(item)" class="add-btn row" v-if="count !== 0">ADD TO CART</button>
                 <div class="option-btn row" v-else>
-                    <div class="col-lg-6 col-md-6">
-                        <button class="inc">+</button>
-                    </div>
-                    <div class=" col-lg-6 col-md-6">
-                        <button class="dec">-</button>
-                    </div>
+                    <button class="add-btn disable-btn row" disabled>OUT OF STOCK</button>
                 </div>
             </div>
 
@@ -46,6 +41,7 @@
             return {
                 name: this.item.name,
                 price: this.item.price,
+                count: this.item.quantity
             }
         },
         methods: {
@@ -56,6 +52,11 @@
                         id: this.item.id
                     }
                 });
+            }
+        },
+        computed: {
+            isAvailbleOnCart(){
+                return this.$store.getters.test(this.item.id);
             }
         }
     }
@@ -122,6 +123,9 @@
                 margin-left: 5%;
                 background: #41B883;
                 color: #fff;
+            }
+            .disable-btn{
+                background-color: #2c3e50;
             }
 
             .option-btn {

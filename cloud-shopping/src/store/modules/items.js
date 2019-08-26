@@ -6,6 +6,9 @@ const state = {
 const getters = {
     itemDetails: (state) => (id) => {
         return state.all.find(item => item.id === id);
+    },
+    test : (state) => () => {
+        console.log('sfsdf');
     }
 }
 
@@ -19,7 +22,7 @@ const actions = {
             imageName: 'apple',
             description: 'this is apple',
             rating: 5,
-            quantity: 4,
+            quantity: 0,
             vendor: 'appleMaker'
         }, {
             id: 2,
