@@ -19,25 +19,25 @@
             <div class='total' id='total-amount'>
                 <div class='row'>
                     <div class='col-lg-8'>total</div>
-                    <div class='col-lg-4'>{{this.total}}</div>
+                    <div class='col-lg-4'>{{`${currency} ${total}`}}</div>
                 </div>
             </div>
             <div class='discounte' id='discounted-amount'>
                 <div class='row'>
                     <div class='col-lg-8'>discount</div>
-                    <div class='col-lg-4'>{{this.discount}}</div>
+                    <div class='col-lg-4'>{{`${currency} ${discount}`}}</div>
                 </div>
             </div>
             <div class='tax' id='tax-amount'>
                 <div class='row'>
                     <div class='col-lg-8'>tax</div>
-                    <div class='col-lg-4'>{{tax}}</div>
+                    <div class='col-lg-4'>{{`${currency} ${tax}`}}</div>
                 </div>
             </div>
             <div class='final' id='final-amount'>
                 <div class='row'>
                     <div class='col-lg-8'>final amount</div>
-                    <div class='col-lg-4'>{{finalAmount}}</div>
+                    <div class='col-lg-4'>{{`${currency} ${finalAmount}`}}</div>
                 </div>
             </div>
         </div>
@@ -55,10 +55,7 @@
         },
         data: function(){
             return{
-                total:0,
-                discount: 0,
-                tax: 0,
-                finalAmount: 0
+                currency: CART.CURRENCY
             }
         },
         props: {
@@ -72,16 +69,21 @@
         computed: {
             hasItemsInCart: function () {
                 return (this.items.length > 0 ? true : false)
+            },
+            total: function () {
+                return cartCalculations.totalprice(this.items)
+            },
+            discount: function () {
+                return cartCalculations.discountPrice(this.total)
+            },
+            tax: function () {
+                return cartCalculations.calculateTotalTax(this.total, CART.TAX_RATE);
+            },
+            finalAmount: function () {
+                return cartCalculations.calculateFinalAmount(this.total, this.tax, this.discount);
             }
-        },
-        beforeUpdate:function (){
-            console.log('i ma running');
-            this.total = cartCalculations.totalprice(this.items);
-            this.discount = cartCalculations.discountPrice(this.total);
-            this.tax = cartCalculations.calculateTotalTax(this.total, CART.TAX_RATE);
-            this.finalAmount = cartCalculations.calculateFinalAmount(this.total, this.tax, this.discount)
-        }
 
+        }
     }
 </script>
 
