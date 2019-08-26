@@ -2,7 +2,7 @@
     <div class='Product container' id='Product'>
         <div>
             <!--            image-->
-            <div class='item-image row' id='cart-image'>
+            <div class='item-image row' id='cart-image' @click="onClickImage">
                 <img src="../../assets/products/apple.png">
             </div>
             <!--            details-->
@@ -32,7 +32,6 @@
 </template>
 
 <script>
-
     export default {
         props: {
             item: {
@@ -47,6 +46,16 @@
             return {
                 name: this.item.name,
                 price: this.item.price,
+            }
+        },
+        methods: {
+            onClickImage() {
+                this.$router.push({
+                    name: 'product',
+                    params: {
+                        id: this.item.id
+                    }
+                });
             }
         }
     }
