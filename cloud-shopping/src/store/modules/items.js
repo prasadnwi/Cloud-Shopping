@@ -3,7 +3,11 @@ const state = {
 }
 
 // getters
-const getters = {}
+const getters = {
+    itemDetails: (state) => (id) => {
+        return state.all.find(item => item.id === id);
+    }
+}
 
 // actions
 const actions = {
@@ -49,7 +53,7 @@ const actions = {
             }
         ]
         commit('setItems', items);
-    }
+    },
 }
 
 // mutations

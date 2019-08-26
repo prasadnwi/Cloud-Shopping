@@ -17,7 +17,7 @@ export default new Router({
       path: '/product/:id',
       name: 'product',
       // route level code-splitting
-      component: () => import('./views/Product.vue')
+      component: () => import('./views/Item.vue')
     },
   ]
 })
