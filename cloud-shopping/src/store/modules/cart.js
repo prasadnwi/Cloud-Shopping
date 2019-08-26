@@ -1,49 +1,47 @@
-import {cartCalculation} from '../../utill/cart';
-import {CART} from '../../constants/cart';
+const cart = {
+    all: []
+};
 
-const state = {
-    all: [],
-    total: 0,
-    discount: 0,
-    tax: 0,
-    taxRate: CART.TAX_RATE,
-    finalAmount: 0,
-    currency: CART.CURRENCY
+const getters = {
 
 }
 
-// getters
-const getters = {}
-
-// actions
 const actions = {
-    addItemToCart({state, commit}, addedItem) {
-        console.log(addedItem);
-        // check in the cart
-        const itemInCart = state.all.find(item => item.id === addedItem.id);
-        if (!itemInCart) {
-            commit('pusItemToCart', {addedItem})
+    addItemToCart({state, commit}, item) {
+
+        // format item data
+        let addedItem = {
+            id: item.id,
+            name: item.name,
+            count: 1
+        };
+// check in the cart
+        const indexofItem = state.all.findIndex(item => item.id === addedItem.id);
+
+        if (indexofItem === -1) {
+            commit('pusItemToCart', {item: addedItem})
         } else {
-            commit('incrementItemQuantity', {itemId: addedItem.id})
+            commit('incrementItemQuantity', {indexofItem})
         }
 
-        // update cart
-
-        // remove one item from item list
+// remove one item from item list
     }
 }
 
-// mutations
 const mutations = {
-    pusItemToCart(state, item) {
-        state.all.push(item)
+    pusItemToCart(state, addedItem) {
+        state.all.push(addedItem.item)
+    },
+    incrementItemQuantity(state, indexofItem) {
+        state.all[indexofItem.indexofItem].count++;
     }
+
 }
 
 export default {
     namespaced: true,
-    state,
-    getters,
+    cart,
     actions,
-    mutations
-}
+    mutations,
+    getters
+};
