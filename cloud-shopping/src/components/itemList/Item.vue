@@ -21,6 +21,14 @@
                     <button class="add-btn disable-btn row" disabled>OUT OF STOCK</button>
                 </div>
             </div>
+            <div class="option-btn row" v-else>
+                <div class="col-lg-6 col-md-6">
+                    <button class="inc" @click="addItemToCart(item)">+</button>
+                </div>
+                <div class=" col-lg-6 col-md-6">
+                    <button class="dec" @click="removeItemFromCart(item)">-</button>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -36,6 +44,7 @@
                 }
             },
             addItemToCart: {type: Function},
+            removeItemFromCart: {type: Function}
         },
         data: function () {
             return {
@@ -127,23 +136,23 @@
             .disable-btn{
                 background-color: #2c3e50;
             }
+        }
+        .option-btn {
+            font-size: 79%;
+            .inc {
+                width: 100%;
+                background: #418cb8;
+                margin-right: 1%;
+                color: #fff;
+                float: left;
+            }
 
-            .option-btn {
-                .inc {
-                    width: 100%;
-                    background: #418cb8;
-                    margin-right: 1%;
-                    color: #fff;
-                    float: left;
-                }
-
-                .dec {
-                    width: 100%;
-                    background: #418cb8;
-                    color: #fff;
-                    margin-left: 1%;
-                    float: left;
-                }
+            .dec {
+                width: 100%;
+                background: #418cb8;
+                color: #fff;
+                margin-left: 1%;
+                float: left;
             }
         }
 

@@ -5,7 +5,9 @@
             <div class='list-content' id='product-list'>
                 <!--items-->
                 <Item
-                        v-bind:addItemToCart="addItemToCart" v-bind:item="item"
+                        v-bind:addItemToCart="addItemToCart"
+                        v-bind:removeItemFromCart="removeItemFromCart"
+                        v-bind:item="item"
                         v-for=" item in items"
                 />
             </div>
@@ -26,6 +28,7 @@
                 }
             },
             addItemToCart: {type: Function},
+            removeItemFromCart: {type: Function}
         },
         components: {
             Item

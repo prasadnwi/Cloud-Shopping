@@ -22,7 +22,11 @@ const actions = {
             commit('incrementItemQuantity', {indexofItem})
         }
 
-// remove one item from item list
+// Todo : remove one item from item list
+    },
+    removeItemFromCart({state, commit}, item) {
+        const updatedCart =  state.all.filter(existingItem => existingItem.id != item.id);
+        commit('updateCart', {updatedCart})
     }
 };
 
@@ -32,6 +36,11 @@ const mutations = {
     },
     incrementItemQuantity(state, indexofItem) {
         state.all[indexofItem.indexofItem].count++;
+    },
+    updateCart(state, updatedItems){
+        console.log('updatdItems');
+        console.log(updatedItems);
+        // state.all = updatedItems;
     }
 
 };
