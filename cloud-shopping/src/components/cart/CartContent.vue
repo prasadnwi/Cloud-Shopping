@@ -19,25 +19,25 @@
             <div class='total' id='total-amount'>
                 <div class='row'>
                     <div class='col-lg-8'>total</div>
-                    <div class='col-lg-4'>Rs 500</div>
+                    <div class='col-lg-4'>{{this.total}}</div>
                 </div>
             </div>
             <div class='discounte' id='discounted-amount'>
                 <div class='row'>
                     <div class='col-lg-8'>discount</div>
-                    <div class='col-lg-4'>100</div>
+                    <div class='col-lg-4'>{{this.discount}}</div>
                 </div>
             </div>
             <div class='tax' id='tax-amount'>
                 <div class='row'>
                     <div class='col-lg-8'>tax</div>
-                    <div class='col-lg-4'>rs 5</div>
+                    <div class='col-lg-4'>{{tax}}</div>
                 </div>
             </div>
             <div class='final' id='final-amount'>
                 <div class='row'>
                     <div class='col-lg-8'>final amount</div>
-                    <div class='col-lg-4'>450</div>
+                    <div class='col-lg-4'>{{finalAmount}}</div>
                 </div>
             </div>
         </div>
@@ -45,11 +45,21 @@
 </template>
 
 <script>
+    import * as cartCalculations from '../../utill/cart';
     import Item from "./Item";
+    import {CART} from '../../constants/cart';
     export default {
         name: "CartContent",
         components: {
             Item
+        },
+        data: function(){
+            return{
+                total:0,
+                discount: 0,
+                tax: 0,
+                finalAmount: 0
+            }
         },
         props: {
             items: {
@@ -63,6 +73,13 @@
             hasItemsInCart: function () {
                 return (this.items.length > 0 ? true : false)
             }
+        },
+        beforeUpdate:function (){
+            console.log('i ma running');
+            this.total = cartCalculations.totalprice(this.items);
+            this.discount = cartCalculations.discountPrice(this.total);
+            this.tax = cartCalculations.calculateTotalTax(this.total, CART.TAX_RATE);
+            this.finalAmount = cartCalculations.calculateFinalAmount(this.total, this.tax, this.discount)
         }
 
     }

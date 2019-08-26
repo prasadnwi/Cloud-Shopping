@@ -38,11 +38,11 @@
         },
         data: function () {
             return{
-                price: cartCalculation.calculateAItemPrice(this.item)
+                price: cartCalculation.getAItemPrice(this.item)
             }
         },
         beforeUpdate: function () {
-            this.price = cartCalculation.calculateAItemPrice(this.item)
+            this.price = cartCalculation.getAItemPrice(this.item)
         }
     }
 </script>
