@@ -18,7 +18,7 @@ const actions = {
             quantity: 4,
             vendor: 'appleMaker'
         }, {
-            id: 1,
+            id: 2,
             name: 'Orange',
             price: 100,
             imageName: 'apple',
@@ -28,7 +28,7 @@ const actions = {
             vendor: 'appleMaker'
         },
             {
-                id: 1,
+                id: 3,
                 name: 'Apple',
                 price: 100,
                 imageName: 'apple',
@@ -38,7 +38,7 @@ const actions = {
                 vendor: 'appleMaker'
             },
             {
-                id: 1,
+                id: 4,
                 name: 'Apple',
                 price: 100,
                 imageName: 'apple',

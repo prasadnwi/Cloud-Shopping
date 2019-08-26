@@ -12,7 +12,7 @@
                         <p>{{item.name}}</p>
                     </div>
                     <div class="quantity col-6" id="item-quantity">
-                        <p>* 2</p>
+                        <p>* {{item.count}}</p>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,9 @@
         props: {
             item: {
                 type: Object,
-                default: {}
+                default: function () {
+                    return {}
+                }
             }
         }
     }

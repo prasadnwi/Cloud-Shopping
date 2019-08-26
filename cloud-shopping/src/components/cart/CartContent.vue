@@ -8,7 +8,7 @@
 
         <!--        items-->
         <div class="items" id="item-list" v-if="hasItemsInCart">
-            <Item v-bind:item="item" v-for="item in items"/>
+            <Item v-bind:item="item" v-for="item in items" v-bind:key="item.id"/>
         </div>
         <div class="no-items" id="no-items" v-else>
             No Items
