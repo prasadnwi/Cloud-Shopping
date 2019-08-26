@@ -15,7 +15,8 @@
     },
     computed: {
       itemDetail(){
-        return this.$store.getters.itemDetails(1);
+        const itemId = this.$route.params.id;
+        return this.$store.getters.itemDetails(itemId);
       }
     },
     created() {

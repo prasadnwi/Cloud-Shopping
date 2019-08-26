@@ -6,12 +6,12 @@
         </div>
         <div class='row'>
 
-<!--            image-->
+            <!--image-->
             <div class='image col-lg-6 col-md-12 col-sm-12'>
                 <img src='../../assets/products/apple.png' alt="this is a image"/>
             </div>
 
-<!--            details-->
+            <!--details-->
             <div class='details col-lg-4 col-md-9 col-sm-12'>
                 <div class="row col-lg-12 col-md-12 col-sm-12">
                     <label htmlFor="name" class="col-lg-4 col-md-4 col-sm-4 col-form-label">Name</label>
@@ -66,7 +66,7 @@
     export default {
         name: "ItemContent",
         props: {
-            itemDetails : {
+            itemDetails: {
                 type: Object,
                 default: function () {
                     return ({})
@@ -89,6 +89,7 @@
     .ProductDetailsContent {
         margin-left: 3vw;
         margin-bottom: 2vh;
+
         .back {
             i {
                 font-size: 4vw;
