@@ -25,18 +25,19 @@ const actions = {
 // Todo : remove one item from item list
     },
     removeItemFromCart({state, commit}, item) {
-        const indexofItem = state.all.findIndex(existingItem => existingItem.id === item.id);
+
         let updatedCart, temCart;
+        const indexofItem = state.all.findIndex(existingItem => existingItem.id === item.id);
 
         if (indexofItem !== -1 && state.all[indexofItem].count > 1) {
 
             updatedCart = [...state.all];
             updatedCart[indexofItem].count--;
 
-        } else if (indexofItem !== -1 && state.all[indexofItem] === 1) {
+        } else if (indexofItem !== -1 && state.all[indexofItem].count === 1) {
 
             temCart = state.all.filter(existingItem => existingItem.id != item.id);
-            // if cart is undefine, then return empty array
+            // if update cart is undefine, then return empty array
             updatedCart = temCart ? temCart : [];
         }
 
@@ -52,7 +53,7 @@ const mutations = {
         state.all[indexofItem.indexofItem].count++;
     },
     updateCart(state, updatedItems) {
-        state.all = updatedItems;
+        state.all = updatedItems.updatedCart ? updatedItems.updatedCart : [];
     }
 
 };

@@ -8,7 +8,12 @@ const getters = {
         return state.all.find(item => item.id === id);
     },
     isAvailbleOnCart:(state, getters, rootState) => (id) => {
-        return rootState.cart.all.find(item => item.id === id);
+
+        let availability = false;
+        if(rootState.cart.all && rootState.cart.all.findIndex(item => item.id === id) !== -1){
+            availability = true
+        }
+        return availability;
     }
 }
 
