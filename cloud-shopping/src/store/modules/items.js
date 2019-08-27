@@ -1,12 +1,23 @@
+import {items} from '../../constants/itemData';
 const state = {
     all: []
 }
 
 // getters
 const getters = {
+    /*
+    @desc get item detail for given item id
+    @params number $id - item id
+    @return item details
+     */
     itemDetails: (state) => (id) => {
         return state.all.find(item => item.id === id);
     },
+    /*
+    @desc check availability in the cart of given item id
+    @params number $id - item id
+    @return true or false (item availability)
+     */
     isAvailbleOnCart:(state, getters, rootState) => (id) => {
 
         let availability = false;
@@ -20,46 +31,6 @@ const getters = {
 // actions
 const actions = {
     getAllItems({commit}) {
-        const items = [{
-            id: 1,
-            name: 'Apple',
-            price: 100,
-            imageName: 'apple',
-            description: 'this is apple',
-            rating: 5,
-            quantity: 0,
-            vendor: 'appleMaker'
-        }, {
-            id: 2,
-            name: 'Orange',
-            price: 100,
-            imageName: 'apple',
-            description: 'this is apple',
-            rating: 5,
-            quantity: 4,
-            vendor: 'appleMaker'
-        },
-            {
-                id: 3,
-                name: 'Apple',
-                price: 100,
-                imageName: 'apple',
-                description: 'this is apple',
-                rating: 5,
-                quantity: 4,
-                vendor: 'appleMaker'
-            },
-            {
-                id: 4,
-                name: 'Apple',
-                price: 100,
-                imageName: 'apple',
-                description: 'this is apple',
-                rating: 5,
-                quantity: 4,
-                vendor: 'appleMaker'
-            }
-        ]
         commit('setItems', items);
     },
 }
