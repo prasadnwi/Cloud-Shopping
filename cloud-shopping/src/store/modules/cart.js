@@ -6,11 +6,11 @@ const getters = {};
 
 const actions = {
     /*
-    @desc add a item into the cart
+    @desc add a item into the cart and remove a item from item list
     @params object $item - added item
     @return adding a item or incrementing the number of added items
      */
-    addItemToCart({state, commit}, item) {
+    addItemToCart({state, commit, dispatch}, item) {
 
         let addedItem = {
             id: item.id,
@@ -27,7 +27,7 @@ const actions = {
             commit('incrementItemQuantity', {indexofItem})
         }
 
-// Todo : remove one item from item list
+        dispatch('removeItemFromItemList', item.id, {root: true}) // remove a item from cart
     },
     /*
     @desc remove a item from the cart
