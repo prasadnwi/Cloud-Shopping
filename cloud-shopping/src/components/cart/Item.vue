@@ -18,7 +18,7 @@
             </div>
             <!--            price-->
             <div class="price lg-col-3 md-col-3" id="price">
-                <p>{{price}}</p>
+                <p>{{`${currency} ${price}`}}</p>
             </div>
         </div>
     </div>
@@ -26,6 +26,7 @@
 
 <script>
     import * as cartCalculation from '../../utill/cart';
+    import {CART} from '../../constants/cart';
     export default {
         name: "Item",
         props: {
@@ -38,7 +39,8 @@
         },
         data: function () {
             return{
-                price: cartCalculation.getAItemPrice(this.item)
+                price: cartCalculation.getAItemPrice(this.item),
+                currency: CART.CURRENCY
             }
         },
         beforeUpdate: function () {

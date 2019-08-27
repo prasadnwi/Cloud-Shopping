@@ -17,7 +17,7 @@ const actions = {
         const indexofItem = state.all.findIndex(item => item.id === addedItem.id);
 
         if (indexofItem === -1) {
-            commit('pusItemToCart', {item: addedItem})
+            commit('pusItemToCart', {addedItem})
         } else {
             commit('incrementItemQuantity', {indexofItem})
         }
@@ -47,7 +47,7 @@ const actions = {
 
 const mutations = {
     pusItemToCart(state, addedItem) {
-        state.all.push(addedItem.item)
+        state.all.push(addedItem.addedItem)
     },
     incrementItemQuantity(state, indexofItem) {
         state.all[indexofItem.indexofItem].count++;
