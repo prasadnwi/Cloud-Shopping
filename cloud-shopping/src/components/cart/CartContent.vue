@@ -15,28 +15,29 @@
         </div>
 
         <!--        cart summery-->
-        <div class="summary" id="cart-summery">
+        <div class="summary" id="cart-summery" v-if="hasItemsInCart">
+
             <div class='total' id='total-amount'>
                 <div class='row'>
-                    <div class='col-lg-8'>total</div>
+                    <div class='col-lg-8'>TOTAL</div>
                     <div class='col-lg-4'>{{`${currency} ${total}`}}</div>
                 </div>
             </div>
             <div class='discounte' id='discounted-amount'>
                 <div class='row'>
-                    <div class='col-lg-8'>discount</div>
+                    <div class='col-lg-8'> DISCOUNT</div>
                     <div class='col-lg-4'>{{`${currency} ${discount}`}}</div>
                 </div>
             </div>
             <div class='tax' id='tax-amount'>
                 <div class='row'>
-                    <div class='col-lg-8'>tax</div>
+                    <div class='col-lg-8'>TAX</div>
                     <div class='col-lg-4'>{{`${currency} ${tax}`}}</div>
                 </div>
             </div>
             <div class='final' id='final-amount'>
                 <div class='row'>
-                    <div class='col-lg-8'>final amount</div>
+                    <div class='col-lg-8'>FINAL AMOUNT</div>
                     <div class='col-lg-4'>{{`${currency} ${finalAmount}`}}</div>
                 </div>
             </div>
@@ -105,22 +106,23 @@
         }
 
         .no-items {
+            margin-bottom: 2vh;
+            font-weight: bold;
         }
         .summary {
             text-align: left;
+            margin-left: 2vw;
 
             .total {
                 margin-top: 2vh;
             }
 
-            .discount {
+            .discounte {
                 margin-top: 2vh;
             }
-
             .tax {
                 margin-top: 2vh;
             }
-
             .final {
                 margin-top: 2vh;
                 margin-bottom: 4vh;
