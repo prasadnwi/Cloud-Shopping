@@ -15,15 +15,18 @@
                     <p class='price'> Rs {{price}}</p>
                 </div>
             </div>
-            <div class='add-cart' id='add-cart'>
-                <button @click="addItemToCart(item)" class="add-btn row" v-if="0 == 0">ADD TO CART</button>
+            <div class='add-cart' id='add-cart' v-if="!isAvailbleOnCart">
+                <button @click="addItemToCart(item)" class="add-btn row" v-if="count !== 0">ADD TO CART</button>
                 <div class="option-btn row" v-else>
-                    <div class="col-lg-6 col-md-6">
-                        <button class="inc">+</button>
-                    </div>
-                    <div class=" col-lg-6 col-md-6">
-                        <button class="dec">-</button>
-                    </div>
+                    <button class="add-btn disable-btn row" disabled>OUT OF STOCK</button>
+                </div>
+            </div>
+            <div class="option-btn row" v-else>
+                <div class="col-lg-6 col-md-6">
+                    <button class="inc" @click="addItemToCart(item)">+</button>
+                </div>
+                <div class=" col-lg-6 col-md-6">
+                    <button class="dec" @click="removeItemFromCart(item)">-</button>
                 </div>
             </div>
 
@@ -41,11 +44,13 @@
                 }
             },
             addItemToCart: {type: Function},
+            removeItemFromCart: {type: Function}
         },
         data: function () {
             return {
                 name: this.item.name,
                 price: this.item.price,
+                count: this.item.quantity
             }
         },
         methods: {
@@ -56,6 +61,11 @@
                         id: this.item.id
                     }
                 });
+            }
+        },
+        computed: {
+            isAvailbleOnCart(){
+                return this.$store.getters.isAvailbleOnCart(this.item.id);
             }
         }
     }
@@ -123,23 +133,26 @@
                 background: #41B883;
                 color: #fff;
             }
+            .disable-btn{
+                background-color: #2c3e50;
+            }
+        }
+        .option-btn {
+            font-size: 79%;
+            .inc {
+                width: 100%;
+                background: #418cb8;
+                margin-right: 1%;
+                color: #fff;
+                float: left;
+            }
 
-            .option-btn {
-                .inc {
-                    width: 100%;
-                    background: #418cb8;
-                    margin-right: 1%;
-                    color: #fff;
-                    float: left;
-                }
-
-                .dec {
-                    width: 100%;
-                    background: #418cb8;
-                    color: #fff;
-                    margin-left: 1%;
-                    float: left;
-                }
+            .dec {
+                width: 100%;
+                background: #418cb8;
+                color: #fff;
+                margin-left: 1%;
+                float: left;
             }
         }
 

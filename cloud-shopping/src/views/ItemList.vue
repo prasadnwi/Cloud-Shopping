@@ -5,6 +5,7 @@
         <ItemListContent
                 v-bind:addItemToCart="addItemToCart"
                 v-bind:items="items"
+                v-bind:removeItemFromCart="removeItemFromCart"
         />
       </div>
       <div class="col-lg-4">
@@ -30,7 +31,8 @@
       items: state => state.items.all
     }),
     methods: mapActions('cart', [
-      'addItemToCart'
+      'addItemToCart',
+      'removeItemFromCart'
     ]),
     created() {
       this.$store.dispatch('getAllItems')

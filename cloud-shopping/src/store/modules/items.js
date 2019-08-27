@@ -6,6 +6,14 @@ const state = {
 const getters = {
     itemDetails: (state) => (id) => {
         return state.all.find(item => item.id === id);
+    },
+    isAvailbleOnCart:(state, getters, rootState) => (id) => {
+
+        let availability = false;
+        if(rootState.cart.all && rootState.cart.all.findIndex(item => item.id === id) !== -1){
+            availability = true
+        }
+        return availability;
     }
 }
 
@@ -19,7 +27,7 @@ const actions = {
             imageName: 'apple',
             description: 'this is apple',
             rating: 5,
-            quantity: 4,
+            quantity: 0,
             vendor: 'appleMaker'
         }, {
             id: 2,
@@ -67,5 +75,5 @@ export default {
     state,
     getters,
     actions,
-    mutations
+    mutations,
 }
