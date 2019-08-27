@@ -50,6 +50,19 @@ const actions = {
 
             commit('updateItemList', updatedCart);
         }
+    },
+
+    addItemToItemList({commit}, id) {
+        let updatedCart;
+        const indexofItem = state.all.findIndex(item => item.id === id);
+
+        if (indexofItem !== -1 && state.all[indexofItem].quantity > 0) {
+
+            updatedCart = [...state.all];
+            updatedCart[indexofItem].quantity++;
+
+            commit('updateItemList', updatedCart);
+        }
     }
 }
 

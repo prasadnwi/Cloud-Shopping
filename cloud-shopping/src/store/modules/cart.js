@@ -30,11 +30,11 @@ const actions = {
         dispatch('removeItemFromItemList', item.id, {root: true}) // remove a item from cart
     },
     /*
-    @desc remove a item from the cart
+    @desc remove a item from the cart and add the item back to item list
     @params object $item - removed item
     @return removing a item or decreasing number of removed items
      */
-    removeItemFromCart({state, commit}, item) {
+    removeItemFromCart({state, commit, dispatch}, item) {
 
         let updatedCart, temCart;
         const indexofItem = state.all.findIndex(existingItem => existingItem.id === item.id);
@@ -51,6 +51,8 @@ const actions = {
         }
 
         commit('updateCart', {updatedCart})
+
+        dispatch('addItemToItemList', item.id, {root: true}) // add a item from cart
     }
 };
 
