@@ -44,8 +44,10 @@ const actions = {
         const indexofItem = state.all.findIndex(item => item.id === id);
 
         if (indexofItem !== -1 && state.all[indexofItem].quantity > 0) {
+
             updatedCart = [...state.all];
             updatedCart[indexofItem].quantity--;
+
             commit('updateItemList', updatedCart);
         }
     }
@@ -58,7 +60,6 @@ const mutations = {
     },
     updateItemList(state, updatedCart) {
         state.all = updatedCart;
-        console.log(state.all);
     }
 }
 
