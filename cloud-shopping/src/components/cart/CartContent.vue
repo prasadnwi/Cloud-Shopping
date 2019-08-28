@@ -73,7 +73,7 @@
                 return (this.items.length > 0 ? true : false)
             },
             total: function () {
-                return cartCalculations.totalprice(this.items)
+                return cartCalculations.totalPrice(this.items)
             },
             discount: function () {
                 return cartCalculations.discountPrice(this.total)
