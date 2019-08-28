@@ -9,6 +9,36 @@
       "rating": 5,
       "quantity": 3,
       "vendor": "appleMaker"
+    },
+    {
+      "id": 2,
+      "name": "Orange",
+      "price": 100,
+      "imageName": "apple",
+      "description": "this is apple",
+      "rating": 5,
+      "quantity": 4,
+      "vendor": "appleMaker"
+    },
+    {
+      "id": 3,
+      "name": "Apple",
+      "price": 100,
+      "imageName": "apple",
+      "description": "this is apple",
+      "rating": 5,
+      "quantity": 4,
+      "vendor": "appleMaker"
+    },
+    {
+      "id": 4,
+      "name": "Mango",
+      "price": 100,
+      "imageName": "apple",
+      "description": "this is apple",
+      "rating": 5,
+      "quantity": 4,
+      "vendor": "appleMaker"
     }
   ]
 }

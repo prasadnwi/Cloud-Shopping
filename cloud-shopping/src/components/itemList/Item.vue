@@ -149,49 +149,49 @@
             display: block;
             font-size: 79%;
 
-            .add-btn, .inc, .dec {
+            .add-btn {
                 display: block;
                 border: none;
                 padding: 0.5em;
                 outline: none;
-            }
-
-            .add-btn {
+                border-radius: 4px;
                 width: 90%;
                 margin-left: 5%;
-                background: #41B883;
-                color: #fff;
+                background: $seaGreen;
+                color: $white;
             }
 
             .disable-btn {
-                background-color: #2c3e50;
+                background-color: $silver;
             }
         }
 
         .option-btn {
             font-size: 79%;
 
-            .inc {
+            button {
                 width: 100%;
-                background: #418cb8;
-                margin-right: 1%;
-                color: #fff;
+                height: 5vh;
+                background: $dodgerBlue;
+                color: $white;
                 float: left;
+                margin-right: 1%;
+                border-radius: 5px;
+                font-weight: bold;
+                font-size: 3vh;
+            }
+
+            .inc {
             }
 
             .dec {
-                width: 100%;
-                background: #418cb8;
-                color: #fff;
-                margin-left: 1%;
-                float: left;
             }
 
             .disable {
-                background-color: darkgrey;
+                background-color: $silver;
                 width: 100%;
                 margin-right: 1%;
-                color: #fff;
+                color: $black;
                 float: left;
             }
         }

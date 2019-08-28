@@ -15,49 +15,48 @@
             <div class='details col-lg-4 col-md-9 col-sm-12' id="summery-content">
                 <!--name-->
                 <div class="row col-lg-12 col-md-12 col-sm-12">
-                    <label htmlFor="name" class="col-lg-4 col-md-4 col-sm-4 col-form-label">Name</label>
-                    <div class="col-lg-8 col-md-6 col-sm-4">
+                    <label htmlFor="name" class="col-lg-5 col-md-5 col-sm-5 col-form-label">Name</label>
+                    <div class="col-lg-5 col-md-5 col-sm-5">
                         <input type="text" readOnly class="form-control-plaintext" id="name"
                                v-model="itemDetails.name"/>
                     </div>
                 </div>
                 <!--price-->
                 <div class="row col-lg-12 col-md-12 col-sm-12">
-                    <label htmlFor="price" class="col-lg-4 col-md-4 col-sm-4 col-form-label">Price</label>
-                    <div class="col-lg-8 col-md-6 col-sm-4">
+                    <label htmlFor="price" class="col-lg-5 col-md-5 col-sm-5 col-form-label">Price</label>
+                    <div class="col-lg-5 col-md-5 col-sm-5">
                         <input type="text" readOnly class="form-control-plaintext" id="price"
                                v-model="itemDetails.price"/>
                     </div>
                 </div>
                 <!--description-->
                 <div class="row col-lg-12 col-md-12 col-sm-12">
-                    <label htmlFor="description"
-                           class="col-lg-4 col-md-4 col-sm-4 col-form-label">Description </label>
-                    <div class="col-lg-8 col-md-6 col-sm-4">
+                    <label htmlFor="description" class="col-lg-5 col-md-5 col-sm-5 col-form-label">Description </label>
+                    <div class="col-lg-5 col-md-5 col-sm-5">
                         <input type="text" readOnly class="form-control-plaintext" id="description"
                                v-model="itemDetails.description"/>
                     </div>
                 </div>
                 <!--rating-->
                 <div class="row col-lg-12 col-md-12 col-sm-12">
-                    <label htmlFor="rating" class="col-lg-4 col-md-4 col-sm-4 col-form-label">Rating</label>
-                    <div class="col-lg-8 col-md-6 col-sm-4">
+                    <label htmlFor="rating" class="col-lg-5 col-md-5 col-sm-5 col-form-label">Rating</label>
+                    <div class="col-lg-5 col-md-5 col-sm-5">
                         <input type="text" readOnly class="form-control-plaintext" id="rating"
                                v-model="itemDetails.rating"/>
                     </div>
                 </div>
                 <!--quantity-->
                 <div class="row col-lg-12 col-md-12 col-sm-12">
-                    <label htmlFor="vendor" class="col-lg-4 col-md-4 col-sm-4 col-form-label">Quantity</label>
-                    <div class="col-lg-8 col-md-6 col-sm-4">
+                    <label htmlFor="vendor" class="col-lg-5 col-md-5 col-sm-5 col-form-label">Quantity</label>
+                    <div class="col-lg-5 col-md-5 col-sm-5">
                         <input type="text" readOnly class="form-control-plaintext" id="quantity"
                                v-model="(itemDetails.quantity == 0) ? 'Out of stock' : itemDetails.quantity"/>
                     </div>
                 </div>
                 <!--vendor-->
                 <div class="row col-lg-12 col-md-12 col-sm-12">
-                    <label htmlFor="vendor" class="col-lg-4 col-md-4 col-sm-4 col-form-label">Vendor</label>
-                    <div class="col-lg-8 col-md-6 col-sm-4">
+                    <label htmlFor="vendor" class="col-lg-5 col-md-5 col-sm-5 col-form-label">Vendor</label>
+                    <div class="col-lg-5 col-md-5 col-sm-5">
                         <input type="text" readOnly class="form-control-plaintext" id="vendor"
                                v-model="itemDetails.vendor"/>
                     </div>
@@ -115,9 +114,11 @@
         }
 
         .details {
-            border-style: dashed;
-            margin-top: 3vh;
+            text-align: left;
+            border-style: solid;
+            margin-top: 1vh;
             border-radius: 10px;
+            margin-left: 7vw;
         }
 
         .cart {
