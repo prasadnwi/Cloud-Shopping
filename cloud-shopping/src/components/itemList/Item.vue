@@ -97,6 +97,7 @@
             }
         }
 
+        /*item details*/
         .item-details {
             display: block;
             max-height: 5vh;
@@ -116,6 +117,7 @@
             }
         }
 
+        /*cart adding buttons*/
         .add-cart {
             display: block;
             font-size: 79%;

@@ -1,4 +1,9 @@
-export const getAItemPrice = (item) => {
+/*
+@desc method here calculate total price of a item
+@params Object $item - list of item
+@return total price for a item
+ */
+export const getAItemPrice = (item = 0) => {
 
     let amount = 0;
     if (item.count && item.unitPrice) {

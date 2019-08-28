@@ -1,12 +1,23 @@
+import {items} from '../../constants/itemData';
 const state = {
     all: []
 }
 
 // getters
 const getters = {
+    /*
+    @desc get item detail for given item id
+    @params number $id - item id
+    @return item details
+     */
     itemDetails: (state) => (id) => {
         return state.all.find(item => item.id === id);
     },
+    /*
+    @desc check availability in the cart of given item id
+    @params number $id - item id
+    @return true or false (item availability)
+     */
     isAvailbleOnCart:(state, getters, rootState) => (id) => {
 
         let availability = false;
@@ -19,55 +30,51 @@ const getters = {
 
 // actions
 const actions = {
+    /*
+    @desc get all item from the data scource
+     */
     getAllItems({commit}) {
-        const items = [{
-            id: 1,
-            name: 'Apple',
-            price: 100,
-            imageName: 'apple',
-            description: 'this is apple',
-            rating: 5,
-            quantity: 0,
-            vendor: 'appleMaker'
-        }, {
-            id: 2,
-            name: 'Orange',
-            price: 100,
-            imageName: 'apple',
-            description: 'this is apple',
-            rating: 5,
-            quantity: 4,
-            vendor: 'appleMaker'
-        },
-            {
-                id: 3,
-                name: 'Apple',
-                price: 100,
-                imageName: 'apple',
-                description: 'this is apple',
-                rating: 5,
-                quantity: 4,
-                vendor: 'appleMaker'
-            },
-            {
-                id: 4,
-                name: 'Apple',
-                price: 100,
-                imageName: 'apple',
-                description: 'this is apple',
-                rating: 5,
-                quantity: 4,
-                vendor: 'appleMaker'
-            }
-        ]
         commit('setItems', items);
     },
+    /*
+    @desc remove a item for a given item id
+     */
+    removeItemFromItemList({commit}, id) {
+        let updatedCart;
+        const indexofItem = state.all.findIndex(item => item.id === id);
+
+        if (indexofItem !== -1 && state.all[indexofItem].quantity > 0) {
+
+            updatedCart = [...state.all];
+            updatedCart[indexofItem].quantity--;
+
+            commit('updateItemList', updatedCart);
+        }
+    },
+    /*
+    @desc add a item for a given item id
+     */
+    addItemToItemList({commit}, id) {
+        let updatedCart;
+        const indexofItem = state.all.findIndex(item => item.id === id);
+
+        if (indexofItem !== -1 && state.all[indexofItem].quantity > 0) {
+
+            updatedCart = [...state.all];
+            updatedCart[indexofItem].quantity++;
+
+            commit('updateItemList', updatedCart);
+        }
+    }
 }
 
 // mutations
 const mutations = {
     setItems(state, items) {
         state.all = items
+    },
+    updateItemList(state, updatedCart) {
+        state.all = updatedCart;
     }
 }
 

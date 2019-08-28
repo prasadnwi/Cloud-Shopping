@@ -20,7 +20,7 @@
       }
     },
     created() {
-      this.$store.dispatch('getAllItems')
+      // this.$store.dispatch('getAllItems')
     },
   }
 </script>

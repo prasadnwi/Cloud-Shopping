@@ -10,6 +10,5 @@ export default new Vuex.Store({
     modules: {
         items,
         cart,
-
     }
 })

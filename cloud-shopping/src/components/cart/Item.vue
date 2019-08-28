@@ -1,11 +1,11 @@
 <template>
     <div class="item container" id="item">
         <div class="content row" id="item-content">
-            <!--            image-->
+            <!--image-->
             <div class="image lg-col-3 md-col-3" id="item-image">
                 <img src="../../assets/products/apple.png"/>
             </div>
-            <!--           details -->
+            <!--details -->
             <div class="details lg-col-6 md-col-6" id="item-details">
                 <div class="row" id="details-content">
                     <div class="name col-6" id="item-name">
@@ -16,7 +16,7 @@
                     </div>
                 </div>
             </div>
-            <!--            price-->
+            <!--price-->
             <div class="price lg-col-3 md-col-3" id="price">
                 <p>{{`${currency} ${price}`}}</p>
             </div>
@@ -25,8 +25,10 @@
 </template>
 
 <script>
+
     import * as cartCalculation from '../../utill/cart';
     import {CART} from '../../constants/cart';
+
     export default {
         name: "Item",
         props: {
@@ -38,7 +40,7 @@
             }
         },
         data: function () {
-            return{
+            return {
                 price: cartCalculation.getAItemPrice(this.item),
                 currency: CART.CURRENCY
             }

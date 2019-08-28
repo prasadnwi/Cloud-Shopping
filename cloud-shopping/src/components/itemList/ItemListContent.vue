@@ -9,6 +9,7 @@
                         v-bind:removeItemFromCart="removeItemFromCart"
                         v-bind:item="item"
                         v-for=" item in items"
+                        v-bind:key="item.id"
                 />
             </div>
         </div>
