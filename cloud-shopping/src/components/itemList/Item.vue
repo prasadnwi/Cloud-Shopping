@@ -24,7 +24,7 @@
             <div class='add-cart' id='add-cart' v-if="!isAvailbleOnCart">
                 <button @click="addItemToCart(item)" class="add-btn row" v-if="count !== 0">ADD TO CART</button>
                 <div class="row" v-else>
-                    <button class="add-btn disable-btn row" disabled>OUT OF STOCK</button>
+                    <button class="add-btn disable-btn row" disabled>OUT OF STOCKS</button>
                 </div>
             </div>
             <!--disable-->

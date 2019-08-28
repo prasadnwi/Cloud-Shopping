@@ -80,6 +80,7 @@
 
                     p {
                         font-weight: bold;
+                        font-family: Arial;
                     }
                 }
 

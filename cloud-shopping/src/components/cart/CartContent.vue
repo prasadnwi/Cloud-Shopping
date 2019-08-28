@@ -19,26 +19,26 @@
 
             <div class='total' id='total-amount'>
                 <div class='row'>
-                    <div class='col-lg-8'>TOTAL</div>
+                    <div class='lable col-lg-8'>TOTAL</div>
                     <div class='col-lg-4'>{{`${currency} ${total}`}}</div>
                 </div>
             </div>
             <div class='discounte' id='discounted-amount'>
                 <div class='row'>
-                    <div class='col-lg-8'> DISCOUNT</div>
+                    <div class='lable col-lg-8'> DISCOUNT</div>
                     <div class='col-lg-4'>{{`${currency} ${discount}`}}</div>
                 </div>
             </div>
             <div class='tax' id='tax-amount'>
                 <div class='row'>
-                    <div class='col-lg-8'>TAX</div>
+                    <div class='lable col-lg-8'>TAX</div>
                     <div class='col-lg-4'>{{`${currency} ${tax}`}}</div>
                 </div>
             </div>
             <div class='final' id='final-amount'>
                 <div class='row'>
-                    <div class='col-lg-8'>FINAL AMOUNT</div>
-                    <div class='col-lg-4'>{{`${currency} ${finalAmount}`}}</div>
+                    <div class='lable col-lg-8'>FINAL AMOUNT</div>
+                    <div class='value col-lg-3'>{{`${currency} ${finalAmount}`}}</div>
                 </div>
             </div>
         </div>
@@ -117,6 +117,9 @@
             text-align: left;
             margin-left: 2vw;
 
+            .lable {
+                font-weight: bold;
+            }
             .total {
                 margin-top: 2vh;
             }
@@ -132,6 +135,11 @@
             .final {
                 margin-top: 2vh;
                 margin-bottom: 4vh;
+
+                .value {
+                    font-weight: bold;
+                    font-size: large;
+                }
             }
         }
     }

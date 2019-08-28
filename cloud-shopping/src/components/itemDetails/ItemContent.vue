@@ -45,7 +45,7 @@
                     <div class="row col-lg-12 col-md-12 col-sm-12">
                         <label htmlFor="vendor" class="col-lg-5 col-md-5 col-sm-5">Quantity</label>
                         <div class="col-lg-5 col-md-5 col-sm-5">
-                            <p>{{(itemDetails.quantity == 0) ? 'Out of stock' : itemDetails.quantity}}</p>
+                            <p>{{(itemDetails.quantity == 0) ? 'OUT OF STOCKS' : itemDetails.quantity}}</p>
                         </div>
                     </div>
                     <!--vendor-->
@@ -130,7 +130,7 @@
             .name {
                 font-size: 5vh;
                 font-weight: bold;
-                background-color: #C0C0C0;
+                background-color: #DCDCDC;
             }
 
             .price {
