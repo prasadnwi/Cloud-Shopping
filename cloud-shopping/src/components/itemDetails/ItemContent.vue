@@ -1,18 +1,18 @@
 <template>
-    <div class='ProductDetailsContent container'>
-        <div class='back row'>
+    <div class='ProductDetailsContent container' id="product-detail-content">
+        <div class='back row' id="navigation-content">
             <button class="btn" @click="onClickBac"><i class="fa fa-arrow-circle-left"></i>
             </button>
         </div>
         <div class='row'>
 
             <!--image-->
-            <div class='image col-lg-6 col-md-12 col-sm-12'>
+            <div class='image col-lg-6 col-md-12 col-sm-12' id="product-image">
                 <img src='../../assets/products/apple.png' alt="this is a image"/>
             </div>
 
             <!--details-->
-            <div class='details col-lg-4 col-md-9 col-sm-12'>
+            <div class='details col-lg-4 col-md-9 col-sm-12' id="summery-content">
                 <!--name-->
                 <div class="row col-lg-12 col-md-12 col-sm-12">
                     <label htmlFor="name" class="col-lg-4 col-md-4 col-sm-4 col-form-label">Name</label>

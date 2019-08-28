@@ -6,7 +6,7 @@
 
 <script>
   // components
-  import ItemContent from "../components/ItemDetails/ItemContent";
+  import ItemContent from "../components/itemDetails/ItemContent";
   // components
   export default {
     name: 'productDetails',
