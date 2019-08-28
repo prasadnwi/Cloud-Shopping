@@ -12,18 +12,27 @@
                 </div>
 
                 <div class='row' id='product-price'>
-                    <p class='price'> Rs {{price}}</p>
+                    <div class="col-lg-8">
+                        <p class='price'> Rs {{price}}</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <p class='name'>{{numberOfItems}}</p>
+                    </div>
                 </div>
             </div>
+
             <div class='add-cart' id='add-cart' v-if="!isAvailbleOnCart">
                 <button @click="addItemToCart(item)" class="add-btn row" v-if="count !== 0">ADD TO CART</button>
-                <div class="option-btn row" v-else>
-                    <button class="add-btn disable-btn row" disabled>OUT OF STOCK</button>
+                <div class="row" v-else>
+                    <button class="add-btn disable-btn row" disabled>OUT OF STOCKS</button>
                 </div>
             </div>
+            <!--disable-->
             <div class="option-btn row" v-else>
                 <div class="col-lg-6 col-md-6">
-                    <button class="inc" @click="addItemToCart(item)">+</button>
+                    <button v-bind:class="increaseButtonStyle" @click="addItemToCart(item)"
+                            :disabled="!isAbleToAddItems">+
+                    </button>
                 </div>
                 <div class=" col-lg-6 col-md-6">
                     <button class="dec" @click="removeItemFromCart(item)">-</button>
@@ -35,6 +44,7 @@
 </template>
 
 <script>
+
     export default {
         props: {
             item: {
@@ -61,11 +71,28 @@
                         id: this.item.id
                     }
                 });
-            }
+            },
         },
         computed: {
-            isAvailbleOnCart(){
+            isAvailbleOnCart() {
                 return this.$store.getters.isAvailbleOnCart(this.item.id);
+            },
+            numberOfItems() {
+                return this.$store.getters.numberOfItems(this.item.id);
+            },
+            isAbleToAddItems() {
+                let ability = true;
+                if (this.$store.getters.numberOfItems(this.item.id) === 0) {
+                    ability = false
+                }
+                return ability;
+            },
+            increaseButtonStyle() {
+                let style = "inc"
+                if (this.$store.getters.numberOfItems(this.item.id) === 0) {
+                    style = "disable"
+                }
+                return style;
             }
         }
     }
@@ -122,38 +149,51 @@
             display: block;
             font-size: 79%;
 
-            .add-btn, .inc, .dec {
+            .add-btn {
                 display: block;
                 border: none;
                 padding: 0.5em;
                 outline: none;
-            }
-
-            .add-btn {
+                border-radius: 4px;
                 width: 90%;
                 margin-left: 5%;
-                background: #41B883;
-                color: #fff;
+                background: $seaGreen;
+                color: $white;
             }
-            .disable-btn{
-                background-color: #2c3e50;
+
+            .disable-btn {
+                background-color: $silver;
+                color: $black;
+                font-weight: bold;
             }
         }
+
         .option-btn {
             font-size: 79%;
-            .inc {
+
+            button {
                 width: 100%;
-                background: #418cb8;
-                margin-right: 1%;
-                color: #fff;
+                height: 5vh;
+                background: $dodgerBlue;
+                color: $white;
                 float: left;
+                margin-right: 1%;
+                border-radius: 5px;
+                font-weight: bold;
+                font-size: 3vh;
+            }
+
+            .inc {
             }
 
             .dec {
+            }
+
+            .disable {
+                background-color: $silver;
                 width: 100%;
-                background: #418cb8;
-                color: #fff;
-                margin-left: 1%;
+                margin-right: 1%;
+                color: $black;
                 float: left;
             }
         }

@@ -1,4 +1,5 @@
 import {items} from '../../constants/itemData';
+
 const state = {
     all: []
 }
@@ -10,7 +11,7 @@ const getters = {
     @params number $id - item id
     @return item details
      */
-    itemDetails: (state) => (id) => {
+    itemDetails: (state) => (id = 0) => {
         return state.all.find(item => item.id === id);
     },
     /*
@@ -18,13 +19,23 @@ const getters = {
     @params number $id - item id
     @return true or false (item availability)
      */
-    isAvailbleOnCart:(state, getters, rootState) => (id) => {
+    isAvailbleOnCart: (state, getters, rootState) => (id) => {
 
         let availability = false;
-        if(rootState.cart.all && rootState.cart.all.findIndex(item => item.id === id) !== -1){
+        if (rootState.cart.all && rootState.cart.all.findIndex(item => item.id === id) !== -1) {
             availability = true
         }
         return availability;
+    },
+    /*@desc get number of items for given item */
+    numberOfItems: (state) => (id = 0) => {
+        const indexOfItem = state.all.findIndex(item => item.id === id);
+        let numberOfAvailableItems = 0;
+
+        if (indexOfItem !== -1) {
+            numberOfAvailableItems = state.all[indexOfItem].quantity;
+        }
+        return numberOfAvailableItems;
     }
 }
 
@@ -56,12 +67,11 @@ const actions = {
      */
     addItemToItemList({commit}, id) {
         let updatedCart;
-        const indexofItem = state.all.findIndex(item => item.id === id);
-
-        if (indexofItem !== -1 && state.all[indexofItem].quantity > 0) {
+        const indexOfItem = state.all.findIndex(item => item.id === id);
+        if (indexOfItem !== -1) {
 
             updatedCart = [...state.all];
-            updatedCart[indexofItem].quantity++;
+            updatedCart[indexOfItem].quantity++;
 
             commit('updateItemList', updatedCart);
         }
