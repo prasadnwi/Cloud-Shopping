@@ -1,73 +1,71 @@
 <template>
     <div class='ProductDetailsContent container' id="product-detail-content">
-        <div class='back row' id="navigation-content">
-            <button class="btn" @click="onClickBac"><i class="fa fa-arrow-circle-left"></i>
-            </button>
-        </div>
-        <div class='row'>
+        <div class="row">
+            <div class="image-content col-lg-7 col-md-7">
+                <div class='back row' id="navigation-content">
+                    <button class="btn" @click="onClickBac"><i class="fa fa-arrow-circle-left"></i>
+                    </button>
+                </div>
+                <div class='row'>
+                    <!--image-->
+                    <div class='image col-lg-6 col-md-12 col-sm-12' id="product-image">
+                        <img src='../../assets/products/apple.png' alt="this is a image"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5">
+                <!--details-->
+                <div class='details' id="summery-content">
+                    <!--name-->
+                    <div class=" name row col-lg-12 col-md-12 col-sm-12">
+                        <p>{{itemDetails.name}}</p>
+                    </div>
+                    <!--price-->
+                    <div class="price row col-lg-12 col-md-12 col-sm-12">
+                        <label htmlFor="price" class="col-lg-5 col-md-5 col-sm-5">Price</label>
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <p>{{`${currency} ${itemDetails.price} `}}</p>
+                        </div>
+                    </div>
+                    <!--description-->
+                    <div class="row col-lg-12 col-md-12 col-sm-12">
+                        <label htmlFor="description" class="col-lg-5 col-md-5 col-sm-5">Description </label>
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <p>{{itemDetails.description}}</p>
+                        </div>
+                    </div>
+                    <!--rating-->
+                    <div class="row col-lg-12 col-md-12 col-sm-12">
+                        <label htmlFor="rating" class="col-lg-5 col-md-5 col-sm-5">Rating</label>
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <p>{{itemDetails.rating}}</p>
+                        </div>
+                    </div>
+                    <!--quantity-->
+                    <div class="row col-lg-12 col-md-12 col-sm-12">
+                        <label htmlFor="vendor" class="col-lg-5 col-md-5 col-sm-5">Quantity</label>
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <p>{{(itemDetails.quantity == 0) ? 'Out of stock' : itemDetails.quantity}}</p>
+                        </div>
+                    </div>
+                    <!--vendor-->
+                    <div class="row col-lg-12 col-md-12 col-sm-12">
+                        <label htmlFor="vendor" class="col-lg-5 col-md-5 col-sm-5">Vendor</label>
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <p>{{itemDetails.vendor}}</p>
+                        </div>
+                    </div>
 
-            <!--image-->
-            <div class='image col-lg-6 col-md-12 col-sm-12' id="product-image">
-                <img src='../../assets/products/apple.png' alt="this is a image"/>
+                </div>
             </div>
 
-            <!--details-->
-            <div class='details col-lg-4 col-md-9 col-sm-12' id="summery-content">
-                <!--name-->
-                <div class="row col-lg-12 col-md-12 col-sm-12">
-                    <label htmlFor="name" class="col-lg-5 col-md-5 col-sm-5 col-form-label">Name</label>
-                    <div class="col-lg-5 col-md-5 col-sm-5">
-                        <input type="text" readOnly class="form-control-plaintext" id="name"
-                               v-model="itemDetails.name"/>
-                    </div>
-                </div>
-                <!--price-->
-                <div class="row col-lg-12 col-md-12 col-sm-12">
-                    <label htmlFor="price" class="col-lg-5 col-md-5 col-sm-5 col-form-label">Price</label>
-                    <div class="col-lg-5 col-md-5 col-sm-5">
-                        <input type="text" readOnly class="form-control-plaintext" id="price"
-                               v-model="itemDetails.price"/>
-                    </div>
-                </div>
-                <!--description-->
-                <div class="row col-lg-12 col-md-12 col-sm-12">
-                    <label htmlFor="description" class="col-lg-5 col-md-5 col-sm-5 col-form-label">Description </label>
-                    <div class="col-lg-5 col-md-5 col-sm-5">
-                        <input type="text" readOnly class="form-control-plaintext" id="description"
-                               v-model="itemDetails.description"/>
-                    </div>
-                </div>
-                <!--rating-->
-                <div class="row col-lg-12 col-md-12 col-sm-12">
-                    <label htmlFor="rating" class="col-lg-5 col-md-5 col-sm-5 col-form-label">Rating</label>
-                    <div class="col-lg-5 col-md-5 col-sm-5">
-                        <input type="text" readOnly class="form-control-plaintext" id="rating"
-                               v-model="itemDetails.rating"/>
-                    </div>
-                </div>
-                <!--quantity-->
-                <div class="row col-lg-12 col-md-12 col-sm-12">
-                    <label htmlFor="vendor" class="col-lg-5 col-md-5 col-sm-5 col-form-label">Quantity</label>
-                    <div class="col-lg-5 col-md-5 col-sm-5">
-                        <input type="text" readOnly class="form-control-plaintext" id="quantity"
-                               v-model="(itemDetails.quantity == 0) ? 'Out of stock' : itemDetails.quantity"/>
-                    </div>
-                </div>
-                <!--vendor-->
-                <div class="row col-lg-12 col-md-12 col-sm-12">
-                    <label htmlFor="vendor" class="col-lg-5 col-md-5 col-sm-5 col-form-label">Vendor</label>
-                    <div class="col-lg-5 col-md-5 col-sm-5">
-                        <input type="text" readOnly class="form-control-plaintext" id="vendor"
-                               v-model="itemDetails.vendor"/>
-                    </div>
-                </div>
-
-            </div>
         </div>
+
     </div>
 </template>
 
 <script>
+    import {CART} from '../../constants/cart';
     export default {
         name: "ItemContent",
         props: {
@@ -84,6 +82,11 @@
                     name: 'home'
                 });
             }
+        },
+        data: () => {
+            return ({
+                currency: CART.CURRENCY
+            })
         }
     }
 </script>
@@ -93,7 +96,6 @@
 
     .ProductDetailsContent {
         margin-left: 3vw;
-        margin-bottom: 2vh;
 
         .back {
             i {
@@ -103,24 +105,38 @@
             }
         }
 
-        .image {
-            margin-left: 10vh;
-            img {
-                width: 20vw;
-                height: 20vw;
-                display: block;
-                margin: auto;
+        .image-content {
+            .image {
+                margin-left: 20vh;
+
+                img {
+                    width: 20vw;
+                    height: 20vw;
+                    display: block;
+                    margin: auto;
+                }
             }
         }
 
         .details {
             text-align: left;
-            border-style: solid;
             margin-top: 1vh;
             border-radius: 10px;
-            margin-left: 7vw;
-        }
 
+            label {
+                font-weight: bold;
+            }
+
+            .name {
+                font-size: 5vh;
+                font-weight: bold;
+                background-color: #C0C0C0;
+            }
+
+            .price {
+                margin-top: 2vh;
+            }
+        }
         .cart {
 
         }

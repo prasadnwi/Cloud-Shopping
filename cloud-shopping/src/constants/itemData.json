@@ -17,7 +17,7 @@
       "imageName": "apple",
       "description": "this is apple",
       "rating": 5,
-      "quantity": 4,
+      "quantity": 0,
       "vendor": "appleMaker"
     },
     {
