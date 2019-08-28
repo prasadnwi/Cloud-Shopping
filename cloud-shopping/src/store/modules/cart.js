@@ -47,7 +47,7 @@ const actions = {
         } else if (indexofItem !== -1 && state.all[indexofItem].count === 1) {
 
             temCart = state.all.filter(existingItem => existingItem.id != item.id);
-            updatedCart = temCart ? temCart : [];  // if update cart is undefine, then return empty array
+            updatedCart = temCart ? temCart : [];  // if update cart is undefined, then return empty array
         }
 
         commit('updateCart', {updatedCart})

@@ -51,7 +51,9 @@ const actions = {
             commit('updateItemList', updatedCart);
         }
     },
-
+    /*
+    @desc add a item for a given item id
+     */
     addItemToItemList({commit}, id) {
         let updatedCart;
         const indexofItem = state.all.findIndex(item => item.id === id);
