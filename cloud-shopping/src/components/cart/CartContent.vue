@@ -1,12 +1,12 @@
 <template>
     <div class='cart-content' id="cart-content">
 
-        <!--        header-->
+        <!--header-->
         <div class="header" id="header">
             <p class='title' id="cart-header">SHOPPING CART</p>
         </div>
 
-        <!--        items-->
+        <!--items-->
         <div class="items" id="item-list" v-if="hasItemsInCart">
             <Item v-bind:item="item" v-for="item in items" v-bind:key="item.id"/>
         </div>
@@ -14,29 +14,30 @@
             No Items
         </div>
 
-        <!--        cart summery-->
-        <div class="summary" id="cart-summery">
+        <!--cart summery-->
+        <div class="summary" id="cart-summery" v-if="hasItemsInCart">
+
             <div class='total' id='total-amount'>
                 <div class='row'>
-                    <div class='col-lg-8'>total</div>
+                    <div class='col-lg-8'>TOTAL</div>
                     <div class='col-lg-4'>{{`${currency} ${total}`}}</div>
                 </div>
             </div>
             <div class='discounte' id='discounted-amount'>
                 <div class='row'>
-                    <div class='col-lg-8'>discount</div>
+                    <div class='col-lg-8'> DISCOUNT</div>
                     <div class='col-lg-4'>{{`${currency} ${discount}`}}</div>
                 </div>
             </div>
             <div class='tax' id='tax-amount'>
                 <div class='row'>
-                    <div class='col-lg-8'>tax</div>
+                    <div class='col-lg-8'>TAX</div>
                     <div class='col-lg-4'>{{`${currency} ${tax}`}}</div>
                 </div>
             </div>
             <div class='final' id='final-amount'>
                 <div class='row'>
-                    <div class='col-lg-8'>final amount</div>
+                    <div class='col-lg-8'>FINAL AMOUNT</div>
                     <div class='col-lg-4'>{{`${currency} ${finalAmount}`}}</div>
                 </div>
             </div>
@@ -48,13 +49,14 @@
     import * as cartCalculations from '../../utill/cart';
     import Item from "./Item";
     import {CART} from '../../constants/cart';
+
     export default {
         name: "CartContent",
         components: {
             Item
         },
-        data: function(){
-            return{
+        data: function () {
+            return {
                 currency: CART.CURRENCY
             }
         },
@@ -93,27 +95,34 @@
     .cart-content {
         border-style: solid;
         min-width: 20vw;
+
         .header {
             background-color: $midnightBlue;
+
             .title {
                 color: $white;
                 font-weight: bold;
             }
         }
 
+        /*content of summery*/
         .items {
         }
 
         .no-items {
+            margin-bottom: 2vh;
+            font-weight: bold;
         }
+
         .summary {
             text-align: left;
+            margin-left: 2vw;
 
             .total {
                 margin-top: 2vh;
             }
 
-            .discount {
+            .discounte {
                 margin-top: 2vh;
             }
 

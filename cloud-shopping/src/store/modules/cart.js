@@ -30,11 +30,11 @@ const actions = {
         dispatch('removeItemFromItemList', item.id, {root: true}) // remove a item from cart
     },
     /*
-    @desc remove a item from the cart
+    @desc remove a item from the cart and add the item back to item list
     @params object $item - removed item
     @return removing a item or decreasing number of removed items
      */
-    removeItemFromCart({state, commit}, item) {
+    removeItemFromCart({state, commit, dispatch}, item) {
 
         let updatedCart, temCart;
         const indexofItem = state.all.findIndex(existingItem => existingItem.id === item.id);
@@ -47,10 +47,12 @@ const actions = {
         } else if (indexofItem !== -1 && state.all[indexofItem].count === 1) {
 
             temCart = state.all.filter(existingItem => existingItem.id != item.id);
-            updatedCart = temCart ? temCart : [];  // if update cart is undefine, then return empty array
+            updatedCart = temCart ? temCart : [];  // if update cart is undefined, then return empty array
         }
 
         commit('updateCart', {updatedCart})
+
+        dispatch('addItemToItemList', item.id, {root: true}) // add a item from cart
     }
 };
 
