@@ -1,4 +1,9 @@
-export const getAItemPrice = (item) => {
+/*
+@desc method here calculate total price of a item
+@params Object $item - list of item
+@return total price for a item
+ */
+export const getAItemPrice = (item = 0) => {
 
     let amount = 0;
     if (item.count && item.unitPrice) {
@@ -6,7 +11,10 @@ export const getAItemPrice = (item) => {
     }
     return amount;
 }
-
+/*
+@desc method here calculate total price for given list of items
+@params Array
+ */
 export const totalprice = (items = []) => {
     let total = 0;
     items.map((item) => {

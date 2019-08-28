@@ -1,12 +1,12 @@
 <template>
     <div class='cart-content' id="cart-content">
 
-        <!--        header-->
+        <!--header-->
         <div class="header" id="header">
             <p class='title' id="cart-header">SHOPPING CART</p>
         </div>
 
-        <!--        items-->
+        <!--items-->
         <div class="items" id="item-list" v-if="hasItemsInCart">
             <Item v-bind:item="item" v-for="item in items" v-bind:key="item.id"/>
         </div>
@@ -14,7 +14,7 @@
             No Items
         </div>
 
-        <!--        cart summery-->
+        <!--cart summery-->
         <div class="summary" id="cart-summery" v-if="hasItemsInCart">
 
             <div class='total' id='total-amount'>
@@ -49,13 +49,14 @@
     import * as cartCalculations from '../../utill/cart';
     import Item from "./Item";
     import {CART} from '../../constants/cart';
+
     export default {
         name: "CartContent",
         components: {
             Item
         },
-        data: function(){
-            return{
+        data: function () {
+            return {
                 currency: CART.CURRENCY
             }
         },
@@ -94,14 +95,17 @@
     .cart-content {
         border-style: solid;
         min-width: 20vw;
+
         .header {
             background-color: $midnightBlue;
+
             .title {
                 color: $white;
                 font-weight: bold;
             }
         }
 
+        /*content of summery*/
         .items {
         }
 
@@ -109,6 +113,7 @@
             margin-bottom: 2vh;
             font-weight: bold;
         }
+
         .summary {
             text-align: left;
             margin-left: 2vw;
@@ -120,9 +125,11 @@
             .discounte {
                 margin-top: 2vh;
             }
+
             .tax {
                 margin-top: 2vh;
             }
+
             .final {
                 margin-top: 2vh;
                 margin-bottom: 4vh;
