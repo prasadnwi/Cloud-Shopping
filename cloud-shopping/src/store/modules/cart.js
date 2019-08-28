@@ -51,7 +51,6 @@ const actions = {
         }
 
         commit('updateCart', {updatedCart})
-
         dispatch('addItemToItemList', item.id, {root: true}) // add a item from cart
     }
 };

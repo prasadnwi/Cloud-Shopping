@@ -51,7 +51,7 @@
                     <label htmlFor="vendor" class="col-lg-4 col-md-4 col-sm-4 col-form-label">Quantity</label>
                     <div class="col-lg-8 col-md-6 col-sm-4">
                         <input type="text" readOnly class="form-control-plaintext" id="quantity"
-                               v-model="itemDetails.quantity"/>
+                               v-model="(itemDetails.quantity == 0) ? 'Out of stock' : itemDetails.quantity"/>
                     </div>
                 </div>
                 <!--vendor-->
@@ -105,6 +105,7 @@
         }
 
         .image {
+            margin-left: 10vh;
             img {
                 width: 20vw;
                 height: 20vw;

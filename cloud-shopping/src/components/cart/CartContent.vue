@@ -73,7 +73,7 @@
                 return (this.items.length > 0 ? true : false)
             },
             total: function () {
-                return cartCalculations.totalPrice(this.items)
+                return cartCalculations.totalprice(this.items)
             },
             discount: function () {
                 return cartCalculations.discountPrice(this.total)
@@ -94,8 +94,7 @@
 
     .cart-content {
         border-style: solid;
-        min-width: 20vw;
-
+        max-width: 60vw;
         .header {
             background-color: $midnightBlue;
 
