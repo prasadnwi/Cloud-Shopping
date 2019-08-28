@@ -181,6 +181,9 @@
                 border-radius: 5px;
                 font-weight: bold;
                 font-size: 3vh;
+                box-shadow: none;
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
             }
 
             .inc {
