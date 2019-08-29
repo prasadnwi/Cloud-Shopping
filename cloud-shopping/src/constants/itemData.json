@@ -5,7 +5,7 @@
       "name": "Apple",
       "price": 100,
       "imageName": "apple",
-      "description": "this is apple",
+      "description": "This is apple",
       "rating": 5,
       "quantity": 3,
       "vendor": "appleMaker"
@@ -15,27 +15,27 @@
       "name": "Orange",
       "price": 100,
       "imageName": "apple",
-      "description": "this is apple",
+      "description": "This is Orange",
       "rating": 5,
       "quantity": 0,
       "vendor": "appleMaker"
     },
     {
       "id": 3,
-      "name": "Apple",
+      "name": "Mango",
       "price": 100,
       "imageName": "apple",
-      "description": "this is apple",
+      "description": "this is Mango",
       "rating": 5,
       "quantity": 4,
       "vendor": "appleMaker"
     },
     {
       "id": 4,
-      "name": "Mango",
+      "name": "Wood apple",
       "price": 100,
       "imageName": "apple",
-      "description": "this is apple",
+      "description": "this is Wood apple",
       "rating": 5,
       "quantity": 4,
       "vendor": "appleMaker"
