@@ -14,4 +14,8 @@ describe("component -> Item.vue", () => {
         expect(wrapper.classes()).toContain('ProductDetailsContent');
     })
 
+    it('has a created hook', () => {
+        expect(typeof ItemContent.data).toBe('function')
+    })
+
 })

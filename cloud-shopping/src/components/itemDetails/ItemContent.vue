@@ -22,35 +22,35 @@
                     </div>
                     <!--price-->
                     <div class="price row col-lg-12 col-md-12 col-sm-12">
-                        <label htmlFor="price" class="col-lg-5 col-md-5 col-sm-5">Price</label>
+                        <label htmlFor="price" class="col-lg-5 col-md-5 col-sm-5">{{priceText}}</label>
                         <div class="col-lg-5 col-md-5 col-sm-5">
                             <p>{{`${currency} ${itemDetails.price} `}}</p>
                         </div>
                     </div>
                     <!--description-->
                     <div class="row col-lg-12 col-md-12 col-sm-12">
-                        <label htmlFor="description" class="col-lg-5 col-md-5 col-sm-5">Description </label>
+                        <label htmlFor="description" class="col-lg-5 col-md-5 col-sm-5">{{descriptionText}}</label>
                         <div class="col-lg-5 col-md-5 col-sm-5">
                             <p>{{itemDetails.description}}</p>
                         </div>
                     </div>
                     <!--rating-->
                     <div class="row col-lg-12 col-md-12 col-sm-12">
-                        <label htmlFor="rating" class="col-lg-5 col-md-5 col-sm-5">Rating</label>
+                        <label htmlFor="rating" class="col-lg-5 col-md-5 col-sm-5">{{ratingText}}</label>
                         <div class="col-lg-5 col-md-5 col-sm-5">
                             <p>{{itemDetails.rating}}</p>
                         </div>
                     </div>
                     <!--quantity-->
                     <div class="row col-lg-12 col-md-12 col-sm-12">
-                        <label htmlFor="vendor" class="col-lg-5 col-md-5 col-sm-5">Quantity</label>
+                        <label htmlFor="vendor" class="col-lg-5 col-md-5 col-sm-5">{{quantityText}}</label>
                         <div class="col-lg-5 col-md-5 col-sm-5">
                             <p>{{(itemDetails.quantity == 0) ? 'OUT OF STOCKS' : itemDetails.quantity}}</p>
                         </div>
                     </div>
                     <!--vendor-->
                     <div class="row col-lg-12 col-md-12 col-sm-12">
-                        <label htmlFor="vendor" class="col-lg-5 col-md-5 col-sm-5">Vendor</label>
+                        <label htmlFor="vendor" class="col-lg-5 col-md-5 col-sm-5">{{vendorText}}</label>
                         <div class="col-lg-5 col-md-5 col-sm-5">
                             <p>{{itemDetails.vendor}}</p>
                         </div>
@@ -66,6 +66,7 @@
 
 <script>
     import {CART} from '../../constants/cart';
+    import STRINGS from "../../constants/strings";
     export default {
         name: "ItemContent",
         props: {
@@ -85,7 +86,12 @@
         },
         data: () => {
             return ({
-                currency: CART.CURRENCY
+                currency: CART.CURRENCY,
+                priceText: STRINGS.COMPONENTS.ITEM_CONTENT.PRICE,
+                descriptionText: STRINGS.COMPONENTS.ITEM_CONTENT.DESCRIPTION,
+                ratingText: STRINGS.COMPONENTS.ITEM_CONTENT.RATING,
+                quantityText: STRINGS.COMPONENTS.ITEM_CONTENT.QUANTITY,
+                vendorText: STRINGS.COMPONENTS.ITEM_CONTENT.VENDOR,
             })
         }
     }
