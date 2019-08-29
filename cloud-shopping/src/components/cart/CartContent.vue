@@ -3,7 +3,7 @@
 
         <!--header-->
         <div class="header" id="header">
-            <p class='title' id="cart-header">SHOPPING CART</p>
+            <p class='title' id="cart-header">{{titleText}}</p>
         </div>
 
         <!--items-->
@@ -11,7 +11,7 @@
             <Item v-bind:item="item" v-for="item in items" v-bind:key="item.id"/>
         </div>
         <div class="no-items" id="no-items" v-else>
-            No Items
+            {{noItemText}}
         </div>
 
         <!--cart summery-->
@@ -19,25 +19,25 @@
 
             <div class='total' id='total-amount'>
                 <div class='row'>
-                    <div class='lable col-lg-8'>TOTAL</div>
+                    <div class='lable col-lg-8'>{{totalText}}</div>
                     <div class='col-lg-4'>{{`${currency} ${total}`}}</div>
                 </div>
             </div>
             <div class='discounte' id='discounted-amount'>
                 <div class='row'>
-                    <div class='lable col-lg-8'> DISCOUNT</div>
+                    <div class='lable col-lg-8'>{{discountText}}</div>
                     <div class='col-lg-4'>{{`${currency} ${discount}`}}</div>
                 </div>
             </div>
             <div class='tax' id='tax-amount'>
                 <div class='row'>
-                    <div class='lable col-lg-8'>TAX</div>
+                    <div class='lable col-lg-8'>{{taxText}}</div>
                     <div class='col-lg-4'>{{`${currency} ${tax}`}}</div>
                 </div>
             </div>
             <div class='final' id='final-amount'>
                 <div class='row'>
-                    <div class='lable col-lg-8'>FINAL AMOUNT</div>
+                    <div class='lable col-lg-8'>{{finalAmountText}}</div>
                     <div class='value col-lg-3'>{{`${currency} ${finalAmount}`}}</div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
     import * as cartCalculations from '../../utill/cart';
     import Item from "./Item";
     import {CART} from '../../constants/cart';
-
+    import STRINGS from "../../constants/strings";
     export default {
         name: "CartContent",
         components: {
@@ -57,7 +57,13 @@
         },
         data: function () {
             return {
-                currency: CART.CURRENCY
+                currency: CART.CURRENCY,
+                titleText: STRINGS.COMPONENTS.CART.CART_CONTENT.TITLE,
+                noItemText: STRINGS.COMPONENTS.CART.CART_CONTENT.NO_ITEM,
+                totalText: STRINGS.COMPONENTS.CART.CART_CONTENT.TOTAL,
+                discountText: STRINGS.COMPONENTS.CART.CART_CONTENT.DISCOUNT,
+                taxText: STRINGS.COMPONENTS.CART.CART_CONTENT.TAX,
+                finalAmountText: STRINGS.COMPONENTS.CART.CART_CONTENT.FINAL_MOUNT,
             }
         },
         props: {

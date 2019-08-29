@@ -14,4 +14,9 @@ describe("component -> CartContent.vue", () => {
         expect(wrapper.classes()).toContain('cart-content');
     })
 
+    // check functions
+    it('has a created hook', () => {
+        expect(typeof CartContent.data).toBe('function')
+    })
+
 })

@@ -1,13 +1,24 @@
 <template>
     <div class='Dashboard-content'>
         <div class='page-title'>
-            <span class='chocolate'>Cloud </span>
-            <span class='goldenrod'>Shopping</span>
+            <span class='chocolate'>{{firstName}} </span>
+            <span class='goldenrod'>{{secondName}}</span>
         </div>
     </div>
 </template>
 
 <script>
+    import STRING from '../constants/strings';
+
+    export default {
+        name: 'CartContent',
+        data: () => {
+            return ({
+                firstName: STRING.VIEWS.DASHBOARD.FIRST_NAME,
+                secondName: STRING.VIEWS.DASHBOARD.LAST_NAME
+            })
+        }
+    }
 </script>
 
 <style lang="scss">
